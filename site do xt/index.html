@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="img/logo do campeonato/copa alagoas ff.png" type="image/x-icon">
+    <title>Tabela de Classificação | Copa alagoas ff</title>
+    <style>
+        :root {
+            --preto: #050505;
+            --dourado: #d4af37;
+            --branco: #ffffff;
+            --cinza-linha: #121212;
+            --borda: #222;
+        }
+
+        /* Reset e Travamento de Scroll Lateral */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            /* Remove qualquer rolagem lateral */
+            background-color: var(--preto);
+            color: var(--branco);
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            padding: 10px;
+        }
+
+        header {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            width: 90px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 1.1rem;
+            color: var(--dourado);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Tabela Otimizada para Caber em Tudo */
+        .container-tabela {
+            width: 100%;
+            background: var(--cinza-linha);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            overflow: hidden;
+            border-collapse: collapse;
+            table-layout: fixed;
+            /* Força as larguras abaixo e impede expansão */
+        }
+
+        th,
+        td {
+            padding: 10px 2px;
+            text-align: center;
+            border-bottom: 1px solid var(--borda);
+            word-wrap: break-word;
+        }
+
+        th {
+            background: var(--dourado);
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: 900;
+        }
+
+        /* Definição Rígida de Larguras para evitar Scroll */
+        .col-pos {
+            width: 32px;
+            color: var(--dourado);
+            font-weight: bold;
+        }
+
+        .col-escudo {
+            width: 35px;
+        }
+
+        .col-nome {
+            width: auto;
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        .col-stats {
+            width: 32px;
+            font-size: 0.75rem;
+        }
+
+        .escudo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .nome-time {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            line-height: 1.2;
+            display: block;
+            /* Se o nome for muito grande, ele quebra linha em vez de empurrar a tabela */
+        }
+
+        /* Zonas de Destaque */
+        .elite {
+            border-left: 3px solid #00ff00;
+        }
+
+        .repescagem {
+            border-left: 3px solid #ffa500;
+        }
+
+        .eliminacao {
+            border-left: 3px solid #ff0000;
+        }
+
+        /* Legendas */
+        .legenda {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .legenda-item {
+            background: #111;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--borda);
+            display: flex;
+            align-items: center;
+            font-size: 0.7rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        /* Ajustes para Telas Maiores (Tablet/PC) */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .logo {
+                width: 100px;
+            }
+
+            .col-pos {
+                width: 60px;
+            }
+
+            .col-stats {
+                width: 70px;
+                font-size: 1rem;
+            }
+
+            .col-escudo {
+                width: 60px;
+            }
+
+            .escudo {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nome-time {
+                font-size: 1rem;
+            }
+
+            td,
+            th {
+                padding: 15px 5px;
+                font-size: 0.9rem;
+            }
+
+            .legenda {
+                flex-direction: row;
+            }
+
+            .legenda-item {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="img/logo do campeonato/COPA ALAGOAS FF.png" alt="Logo" class="logo">
+        <h1>Tabela de classificação</h1>
+    </header>
+
+    <table class="container-tabela">
+        <thead>
+            <tr>
+                <th class="col-pos">#</th>
+                <th class="col-escudo"></th>
+                <th class="col-nome">EQUIPE</th>
+                <th class="col-stats">PTS</th>
+                <th class="col-stats">Q</th>
+                <th class="col-stats">B!</th>
+                <th class="col-stats">K</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="elite">
+                <td class="col-pos">1º</td>
+                <td><img src="img/Logos das Equipes/TROPA DO FLA.png" class="escudo"></td>
+                <td class="col-nome"><span class="nome-time">TROPA DO FLA</span></td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+            </tr>
+            <tr class="elite">
+                <td class="col-pos">2º</td>
+                <td><img src="img/Logos das Equipes/FORSAKEN FSK.png" class="escudo"></td>
+                <td class="col-nome"><span class="nome-time">FORSAKEN FSK</span></td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+            </tr>
+            <tr class="repescagem">
+                <td class="col-pos">3º</td>
+                <td><img src="img/Logos das Equipes/OS SEM MIRA.png" class="escudo"></td>
+                <td class="col-nome"><span class="nome-time">OS SEM MIRA</span></td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+            </tr>
+            <tr class="repescagem">
+                <td class="col-pos">4º</td>
+                <td><img src="img/Logos das Equipes/SEM SENSI.png" class="escudo"></td>
+                <td class="col-nome"><span class="nome-time">SEM SENSI</span></td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+            </tr>
+            <tr class="repescagem">
+                <td class="col-pos">5º</td>
+                <td><img src="img/Logos das Equipes/OS MAGNATAS.png" class="escudo"></td>
+                <td class="col-nome"><span class="nome-time">OS MAGNATAS</span></td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+            </tr>
+            <tr class="repescagem">
+                <td class="col-pos">6º</td>
+                <td><img src="img/Logos das Equipes/AST CORINGA.png" class="escudo"></td>
+                <td class="col-nome"><span class="nome-time">AST CORINGA</span></td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+            </tr>
+            <tr class="eliminacao">
+                <td class="col-pos">7º</td>
+                <td><img src="img/Logos das Equipes/AMOSTRANDINHO DO BDJ.png" class="escudo"></td>
+                <td class="col-nome"><span class="nome-time">AMOSTRANDINHO DO BDJ</span></td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+            </tr>
+            <tr class="eliminacao">
+                <td class="col-pos">8º</td>
+                <td><img src="img/Logos das Equipes/W1M E-SPORTS.png" class="escudo"></td>
+                <td class="col-nome"><span class="nome-time">W1M E-SPORTS</span></td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+                <td class="col-stats" style="color:var(--dourado); font-weight:800;">0</td>
+                <td class="col-stats">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="legenda">
+        <div class="legenda-item">
+            <div class="status-dot" style="background:#00ff00;"></div>
+            <span><b style="color: #00ff00;">SEMIFINAL:</b> Os 2 melhores times garantem vaga direta para a semifinal, e recebem uma premiação de 5 reais!.</span>
+        </div>
+        <div class="legenda-item">
+            <div class="status-dot" style="background:#ffa500;"></div>
+            <span><b style="color: #ffa500;">FASE DE QUALIFICATÓRIAS:</b> Do 3º ao 6º Lugar, as equipes se enfrentaram em uma rodada no Contra Squad para definir os últimos classificados para a SemiFinal, e receberão uma premiação de 2 reais!.</span>
+        </div>
+        <div class="legenda-item">
+            <div class="status-dot" style="background:#ff0000;"></div>
+            <span><b style="color: #ff0000;">ELIMINAÇÃO:</b> Equipes que terminarem nas duas últimas posições ficará de fora das Qualificatórias, e receberão uma premiação de 1 reais!.</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
